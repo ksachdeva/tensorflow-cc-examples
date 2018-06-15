@@ -1,0 +1,3 @@
+[submodule "third-party/tensorflow-cc-sdk-generator"]
+	path = third-party/tensorflow-cc-sdk-generator
+	url = https://github.com/ksachdeva/tensorflow-cc-sdk-generator
