@@ -10,7 +10,6 @@
 // - use different overloads of Run method
 
 int main(int argc, char **argv) {
-
   using namespace tensorflow;
   using namespace tensorflow::ops;
 
@@ -66,29 +65,26 @@ int main(int argc, char **argv) {
     //        std::vector<Tensor>* outputs) const;
     //
     //
-    // which takes FeedType (alias of std::unordered_map<Output, Input::Initializer, OutputHash>
-    // as the first argument.
-    // Note - In std::unordered_map OutputHash is optional
-    // So we just need to supply a map whose key of type "Output" and the
-    // value that respect Initializer
+    // which takes FeedType (alias of std::unordered_map<Output,
+    // Input::Initializer, OutputHash> as the first argument.
+    //
+    // Note - In std::unordered_map OutputHash is optional So we just need to
+    // supply a map whose key of type "Output" and the value that respect
+    // Initializer
     //
     // {a,2} & {b,3} would satisfiy this requirement since type 'a' & 'b'
     // is Output
-    
-    auto status = session.Run({
-      {
-        {a, 2},
-        {b, 3}
-      } }, {c}, &outputs);
-    
+
+    auto status = session.Run({{{a, 2}, {b, 3}}}, {c}, &outputs);
+
     TF_CHECK_OK(status);
-    
+
     // we know that it will be scalar
     // we can also get the underlying data by calling flat
     std::cout << "Underlying Scalar value -> " << outputs[0].flat<int>()
               << std::endl;
   }
-  
+
   {
     // This is yet another example that makes use of Placeholder however
     // this time we want one of the placeholder to have a default value
@@ -96,46 +92,39 @@ int main(int argc, char **argv) {
     // In other words, it does not need to be specified during the session
     // execution. if you give a new value it would accept it else would use
     // the default value
-    
+
     ClientSession session(scope);
-    
+
     // create an input
     auto defaultAInput = Input(8);
-    
+
     // we will use Placeholder as the type for our variables
     auto a = PlaceholderWithDefault(scope, defaultAInput, PartialTensorShape());
     auto b = Placeholder(scope, DT_INT32);
-    
+
     // define the add operation that takes
     // the placeholders a and b as inputs
     auto c = Add(scope, a, b);
-    
+
     std::vector<Tensor> outputs;
-    
+
     // In this Run we are not specifying 'a'
     // so its default value i.e. 8 will be used
-    auto status = session.Run({
-      {
-        {b, 3}
-      } }, {c}, &outputs);
-    
+    auto status = session.Run({{{b, 3}}}, {c}, &outputs);
+
     TF_CHECK_OK(status);
-    
-    std::cout << "Underlying Scalar value (using default placeholder value [8]) -> " << outputs[0].flat<int>()
-    << std::endl;
-    
+
+    std::cout
+        << "Underlying Scalar value (using default placeholder value [8]) -> "
+        << outputs[0].flat<int>() << std::endl;
+
     // here we do specify a value for placeholder 'a' i.e. 9
-    status = session.Run({
-      {
-        {a, 9},
-        {b, 3}
-      } }, {c}, &outputs);
-    
+    status = session.Run({{{a, 9}, {b, 3}}}, {c}, &outputs);
+
     TF_CHECK_OK(status);
-    
-    std::cout << "Underlying Scalar value (after supplying new value [9]) -> " << outputs[0].flat<int>()
-    << std::endl;
-    
+
+    std::cout << "Underlying Scalar value (after supplying new value [9]) -> "
+              << outputs[0].flat<int>() << std::endl;
   }
 
   return 0;

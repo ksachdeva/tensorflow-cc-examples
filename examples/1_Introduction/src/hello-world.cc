@@ -12,7 +12,6 @@
 // - a simple peek inside the output using the DebugString & by flattening it
 
 int main(int argc, char **argv) {
-
   using namespace tensorflow;
   using namespace tensorflow::ops;
 
