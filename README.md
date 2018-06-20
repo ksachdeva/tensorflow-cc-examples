@@ -47,4 +47,6 @@ The examples are heavily commented so there is no separate page to describe them
 
 * **Basic Tensors** ([code](examples/1_Introduction/src/basic-tensors.cc)). A simple example to construct and inspect various types of tensors.
 
+* **Basic GraphDef** ([code](examples/1_Introduction/src/basic-graphdef.cc)). An example that shows how to use GraphDef and Session api. Also shown is how to use the op names to provide the inputs and extract the outputs from the session run.
+
 * **Basic I/O** ([code](examples/1_Introduction/src/basic-io.cc)). An example to show how to use I/O API in tensorflow to read a file.
