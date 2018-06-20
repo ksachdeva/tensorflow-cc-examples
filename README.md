@@ -1,6 +1,6 @@
 # Tensorflow C++ Examples
 
-This repository contains tensorflow examples written in C++. The primary objective of the C++ (at least for me) is to use it for *inference* only. At present, whereever a model is required I use/provide a pre-trained model and/or a python script to generate the model.
+This repository contains tensorflow examples written in C++. The examples are primarily geared towards usage of C++ for inference aspect. At present, whereever a model is required I use/provide a pre-trained model and/or a python script to generate the model.
 
 The inspiration for this repository is https://github.com/aymericdamien/TensorFlow-Examples that provides examples written using python.
 
@@ -23,7 +23,19 @@ cd <path_to_this_repo>/third-party/tensorflow-cc-sdk-generator
 ./gen_sdk.sh -r <path_to_tensorflow_clone> -o <path_to_this_repo>/third-party/tensorflow-sdk
 ```
 
+```bash
+# Build all examples using CMake
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
+You will find the binaries of various examples in the build/bin directory.
+
 ## Examples
+
+The examples are heavily commented so there is no separate page to describe them. Below are brief descriptions and order that I believe should be good for a beginner.
 
 1. Introduction
 
