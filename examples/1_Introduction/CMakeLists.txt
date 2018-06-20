@@ -14,7 +14,7 @@ endmacro()
 
 # here simply call the macro for every sample file (the one that contains the main)
 add_introduction(hello-world ${INTRODUCTION_SRC_PATH} hello-world)
+add_introduction(naming-ops ${INTRODUCTION_SRC_PATH} naming-ops)
 add_introduction(basic-operations ${INTRODUCTION_SRC_PATH} basic-operations)
 add_introduction(basic-tensors ${INTRODUCTION_SRC_PATH} basic-tensors)
 add_introduction(basic-io ${INTRODUCTION_SRC_PATH} basic-io)
-

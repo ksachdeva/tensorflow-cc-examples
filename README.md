@@ -41,6 +41,8 @@ The examples are heavily commented so there is no separate page to describe them
 
 * **Hello World** ([code](examples/1_Introduction/src/hello-world.cc)). A very simple example that shows how to create Const Ops that take scalar inputs and use StringJoin operator to output the concatentation result.
 
+* **Naming Ops** ([code](examples/1_Introduction/src/naming-ops.cc)). This simple example shows how to name your ops. This is optional but recommended practice for sophisticated graphs.
+
 * **Basic Operations** ([code](examples/1_Introduction/src/basic-operations.cc)). This example shows base math ops and usage of Placeholders with and without default values when running the session.
 
 * **Basic Tensors** ([code](examples/1_Introduction/src/basic-tensors.cc)). A simple example to construct and inspect various types of tensors.
