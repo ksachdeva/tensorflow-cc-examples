@@ -9,7 +9,7 @@ The inspiration for this repository is https://github.com/aymericdamien/TensorFl
 You would need to compile the tensorflow. The instructions are available here -
 https://www.tensorflow.org/install/install_sources
 
-Next step is to generate the SDK that can be used as a CMake module. I use another repo (which is submodule of this repository of mine to perform this task. 
+Next step is to generate the SDK that can be used as a CMake module. I use another repo (which is a submodule of this repository) of mine to perform this task.
 
 ```bash
 # Make sure to use the recursive option so that you can get all the dependencies
@@ -37,12 +37,12 @@ You will find the binaries of various examples in the build/bin directory.
 
 The examples are heavily commented so there is no separate page to describe them. Below are brief descriptions and order that I believe should be good for a beginner.
 
-1. Introduction
+### Introduction
 
-* Hello World ([code](examples/1_Introduction/src/hello-world.cc)). A very simple example that shows how to create Const Ops that take scalar inputs and use StringJoin operator to output the concatentation result.
+* **Hello World** ([code](examples/1_Introduction/src/hello-world.cc)). A very simple example that shows how to create Const Ops that take scalar inputs and use StringJoin operator to output the concatentation result.
 
-* Basic Operations ([code](examples/1_Introduction/src/basic-operations.cc)). This example shows base math ops and usage of Placeholders with and without default values when running the session.
+* **Basic Operations** ([code](examples/1_Introduction/src/basic-operations.cc)). This example shows base math ops and usage of Placeholders with and without default values when running the session.
 
-* Basic Tensors ([code](examples/1_Introduction/src/basic-tensors.cc)). A simple example to construct and inspect various types of tensors.
+* **Basic Tensors** ([code](examples/1_Introduction/src/basic-tensors.cc)). A simple example to construct and inspect various types of tensors.
 
-* Basic I/O ([code](examples/1_Introduction/src/basic-io.cc)). An example to show how to use I/O API in tensorflow to read a file.
+* **Basic I/O** ([code](examples/1_Introduction/src/basic-io.cc)). An example to show how to use I/O API in tensorflow to read a file.
